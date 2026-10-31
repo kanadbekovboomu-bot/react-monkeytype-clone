@@ -53,7 +53,7 @@ export function calculateAccuracy(correctKeystrokes, totalKeystrokes) {
 export function calculateConsistency(wpmSamples) {
   if (!wpmSamples || wpmSamples.length < 2) return 100;
 
-  const validSamples = wpmSamples.filter(s => typeof s === "number" && !isNaN(s));
+  const validSamples = wpmSamples.filter(s => Number.isFinite(s));
   if (validSamples.length < 2) return 100;
 
   const n = validSamples.length;

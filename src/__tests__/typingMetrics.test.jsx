@@ -78,6 +78,8 @@ describe("Typing Metrics Engine", () => {
       expect(calculateConsistency([])).toBe(100);
       expect(calculateConsistency([60])).toBe(100);
       expect(calculateConsistency(null)).toBe(100);
+      expect(calculateConsistency([Infinity, 50])).toBe(100);
+      expect(calculateConsistency([Infinity, -Infinity])).toBe(100);
     });
 
     it("should compute lower consistency when variance is high", () => {
